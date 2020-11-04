@@ -229,11 +229,16 @@ code { overflow-wrap: break-word; }
 body .dates {
   margin-bottom: -1rem;
 }
+#post-list .post-body {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 #post-list .post-body > :nth-last-child(2) { display: inline; }
 #post-list .read-more {
   color: var(--color-text-alternate);
   display: inline-block;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* @media (prefers-color-scheme: no-preference), (prefers-color-scheme: light) { */
