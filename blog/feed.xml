@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smockle Blog</title><link>https://www.smockle.com/blog/</link><description>Recent content on Smockle Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.smockle.com/blog/feed.xml" rel="self" type="application/rss+xml"/><item><title>Editor and Environment Setup for Ruby</title><link>https://www.smockle.com/blog/2020/06/25/editor-and-environment-setup-for-ruby/</link><pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/06/25/editor-and-environment-setup-for-ruby/</guid><description>&lt;p>About fifteen years ago, I read &lt;a href="https://poignant.guide">“Why’s (Poignant) Guide to Ruby”&lt;/a>, a bizarre introduction to Ruby which featured cartoon foxes. I immediately identified with its commingling of art and code, and its existence made Ruby feel organic and approachable in a way that Java or .NET—with their dry, glossy tomes—did not. Consequently, the first version of &lt;a href="https://www.smockle.com">smockle.com&lt;/a> was built on Rails.&lt;/p>
+&lt;h2 id="whither-rails">Whither Rails&lt;/h2>
+&lt;p>JavaScript had neither comic foxes nor glossy books. At that time, to a developer not involved in its standardization, it appeared dormant or worse: After ECMAScript 3 was released in 1999, another version of the spec was not published until 2009’s ECMAScript 5. Although a regular release cadence would not be established until six years later (with ES2015), 2009 marked an important end to decade-long breaks in development. The first version of Node.js appeared in 2009. The first version of TypeScript was published in 2012. And in 2013, the widely-used &lt;code>0.10.x&lt;/code> version of Node.js was released.&lt;/p>
+&lt;p>Rails allows you to build backend APIs and frontend UI with Ruby; these developments made it possible to do the same with JavaScript, which could be used for client-side interactions to boot. So in the intervening years, JavaScript (and later TypeScript) subsumed the place Ruby had occupied in my toolbelt.&lt;/p>
+&lt;h2 id="environment-setup">Environment Setup&lt;/h2>
+&lt;p>I recently needed to set up a Ruby development environment. I’m sure folks who regularly write Ruby know better ways to do this. I’m not writing prescriptive instructions, but rather documenting my personal setup so I can remember it. Here’s what I did:&lt;/p>
+&lt;p>First, I installed Ruby 2.6.6 via &lt;code>rbenv&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p>
+&lt;pre>&lt;code>$ rbenv install 2.6.6
+$ rbenv global 2.6.6
+&lt;/code>&lt;/pre>
+&lt;p>Then, I added &lt;code>rbenv&lt;/code>’s shims to &lt;code>PATH&lt;/code>, etc. by adding this line to my &lt;a href="https://github.com/smockle/dotfiles/blob/61d1130ba77541d526e50e2d41ac75ca16da0432/shell/.zprofile#L165-L166">&lt;code>~/.zprofile&lt;/code>&lt;/a>:&lt;/p>
+&lt;pre>&lt;code>eval &amp;quot;$(rbenv init -)&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>I restarted Terminal.app to pick up the new configuration, then globally-installed gems:&lt;/p>
+&lt;pre>&lt;code>$ gem install rubocop
+$ gem install solargraph
+&lt;/code>&lt;/pre>
+&lt;p>I installed these &lt;a href="https://code.visualstudio.com">Visual Studio Code&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> extensions:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>castwide.solargraph&lt;/code>&lt;/li>
+&lt;li>&lt;code>rebornix.ruby&lt;/code>&lt;/li>
+&lt;li>&lt;code>wingrunr21.vscode-ruby&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Then, I configured the Visual Studio Code extensions:&lt;/p>
+&lt;pre>&lt;code>{
+&amp;quot;ruby.format&amp;quot;: &amp;quot;rubocop&amp;quot;,
+&amp;quot;ruby.intellisense&amp;quot;: false,
+&amp;quot;ruby.useLanguageServer&amp;quot;: true,
+}
+&lt;/code>&lt;/pre>
+&lt;p>Finally, I updated Solargraph’s documentation via the Visual Studio Code Command Palette (&lt;code>⌘⇧P&lt;/code>):&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Solargraph: Create a Solargraph config file&lt;/code>&lt;/li>
+&lt;li>&lt;code>Solargraph: Build new gem documentation&lt;/code>&lt;/li>
+&lt;li>&lt;code>Solargraph: Download current Ruby documentation&lt;/code>&lt;/li>
+&lt;li>&lt;code>Solargraph: Restart Solargraph&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>I already had &lt;code>rbenv&lt;/code> installed, but it’s also available from &lt;a href="https://github.com/rbenv/rbenv#homebrew-on-macos">Homebrew&lt;/a>. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>I prefer &lt;a href="https://panic.com/nova/">Nova&lt;/a>’s macOS &lt;a href="https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/">HIG&lt;/a>-friendly UI, but Nova doesn’t support auto-fixing TypeScript or Ruby yet, so I’m using Visual Studio Code. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Ben Thompson on new middlemen</title><link>https://www.smockle.com/blog/2020/02/26/ben-thompson-on-new-middlemen/</link><pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/02/26/ben-thompson-on-new-middlemen/</guid><description>&lt;p>Ben Thompson &lt;a href="https://stratechery.com/2020/email-addresses-and-razor-blades/">contends the Internet did not do away with middlemen&lt;/a>. Instead, he argues, direct-to-consumer companies (e.g. Harry’s) pay Google and Facebook (the leaders in targeted advertising) for customer attention in the same way consumer goods companies have historically paid brick-and-mortar retailers for shelf space.&lt;/p>
+&lt;p>Ben neglects to mention an obvious counterpoint: direct-to-consumer companies—selling cloud services, undershirts, pillows, or mattresses—frequently advertise on podcasts, and neither Google nor Facebook control podcast advertising. If podcasts can drive sufficient customer acquisition, Ben’s thesis doesn’t hold up—direct-to-consumer companies can successfully integrate retail and marketing acumen and thereby profit.&lt;/p>
+&lt;p>This is by no means certain. Google could launch a dynamic ad insertion product built with superior ad-targeting technology, and companies would still be beholden to it for customers. Alternately, there may be too few podcast listeners for a direct-to-consumer company to build a sufficient customer base. Either way, I am interested in how Ben’s thoughts regarding direct-to-consumer companies and podcast advertising.&lt;/p>
+&lt;p>Finally, I enjoyed the following excerpt—the Internet may giveth market access, but taketh away competitive advantage:&lt;/p>
+&lt;blockquote>
+&lt;p>…way back when the world wide web first started publishers looked at the Internet and only saw the potential of reaching new customers; they didn’t consider that because every other publisher in the world could now reach those exact same customers, the integration that drove their business — publishing and distribution in a unique geographic area — had disintegrated.&lt;/p>
+&lt;/blockquote></description></item><item><title/><link>https://www.smockle.com/blog/2020/01/25/finally-finished-foucaults-pendulum/</link><pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/01/25/finally-finished-foucaults-pendulum/</guid><description>&lt;p>‪Finally finished &lt;em>Foucault’s Pendulum&lt;/em>! &lt;em>The Name of the Rose&lt;/em> is vastly more accessible (and more enjoyable). Still, it was an easier read than &lt;em>The Island of the Day Before&lt;/em>.‬&lt;/p>
+&lt;p>‪To amend &lt;em>“vanitas vanitatum, omnia vanitas”&lt;/em>: all life has meaning, except when we look for it.‬&lt;/p></description></item><item><title/><link>https://www.smockle.com/blog/2020/01/07/i-read-scott-alexanders-post/</link><pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/01/07/i-read-scott-alexanders-post/</guid><description>&lt;p>‪I read &lt;a href="https://slatestarcodex.com/2020/01/06/a-very-unlikely-chess-game/">Scott Alexander’s post&lt;/a> this morning, but not until &lt;a href="https://www.bloomberg.com/opinion/articles/2020-01-07/no-rush-repaying-these-student-loans%E2%80%AC">Matt Levine’s “Money Stuff” take&lt;/a> did I realize GPT-2 is &lt;a href="https://www.1klb.com/abulafia/">Abulafia&lt;/a> from Umberto Eco’s &lt;em>Foucault’s Pendulum&lt;/em>.&lt;/p></description></item><item><title/><link>https://www.smockle.com/blog/2020/01/07/new-discovery-class-format-workouts/</link><pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/01/07/new-discovery-class-format-workouts/</guid><description>&lt;p>New discovery: Class-format workouts (as opposed to solo or 1:1 with trainer) are my jam. Guidance and accountability balanced with distraction and time in my own headspace.&lt;/p></description></item><item><title/><link>https://www.smockle.com/blog/2020/01/05/ive-had-an-apple-watch/</link><pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/01/05/ive-had-an-apple-watch/</guid><description>&lt;p>I’ve had an Apple Watch since January 2018, and this is the first time I’ve earned a Perfect Week award. Feels really good. Hoping I can maintain my health, activity and self-care focus all year!&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2020/f0e9d4713c.jpg" alt="Apple Fitness Perfect Week">&lt;/p></description></item><item><title>Jazz: Immediacy and Sophistication</title><link>https://www.smockle.com/blog/2020/01/01/jazz-immediacy-and-sophistication/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/01/01/jazz-immediacy-and-sophistication/</guid><description>&lt;p>On &lt;a href="https://conversationswithtyler.com/episodes/ted-gioia/">&lt;em>Conversations with Tyler&lt;/em> (Ep. 79)&lt;/a> (&lt;a href="https://overcast.fm/+PbpIkVttY/16:08">audio clip&lt;/a>), Ted Gioia describes what initially drew him to jazz; I agree:&lt;/p>
+&lt;blockquote>
+&lt;p>I liked rock because of its emotional immediacy, but it didn’t have the sophistication I want. And then I loved classical music like Bach for the sophistication, but it didn’t have the emotional immediacy. And I said I need something that brings together both.&lt;/p>
+&lt;/blockquote></description></item><item><title/><link>https://www.smockle.com/blog/2019/12/31/a-high-level-overview-of-new-development/</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/12/31/a-high-level-overview-of-new-development/</guid><description>&lt;p>A high-level overview of new developments in Greenville: &lt;a href="https://gvltoday.6amcity.com/greenville-sc-developments/">gvltoday.6amcity.com/greenvill&amp;hellip;&lt;/a>&lt;/p></description></item><item><title/><link>https://www.smockle.com/blog/2019/11/21/2020-goal-take-the-gmat-exam/</link><pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/11/21/2020-goal-take-the-gmat-exam/</guid><description>&lt;p>2020 Goal: Take the GMAT exam. The &lt;a href="http://kaplanquizzes.com/gmat/">Kaplan&lt;/a> and &lt;a href="https://gmatclub.com/blog/category/blog/gmat-tests/">GMAT Club&lt;/a> daily questions have helped me cultivate a daily study habit. Data sufficiency questions have been particularly challenging. Anyone have tips?&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/ee4a4e5a1a.jpg" alt="GMAT Official Guide 2020">&lt;/p></description></item><item><title>Technical Stack III</title><link>https://www.smockle.com/blog/2019/11/19/technical-stack-iii/</link><pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/11/19/technical-stack-iii/</guid><description>&lt;p>To support my goal of writing 52 posts in 2020, I’ve migrated &lt;a href="https://www.smockle.com">smockle.com&lt;/a> (including my blog) to &lt;a href="https://micro.blog">micro.blog&lt;/a>.&lt;/p>
+&lt;p>I’ve encountered minor bugs—missing footnotes, incorrect colors in the macOS app, broken code fence previews—but the publishing experience is much less hacky than &lt;a href="https://blog.smockle.com/2019/05/05/technical-stack-ii/">what I used before&lt;/a>. Although Gatsby enabled me to &lt;a href="https://www.gatsbyjs.org/packages/gatsby-image/">load images more efficiently&lt;/a> and &lt;a href="https://www.gatsbyjs.org/packages/gatsby-remark-vscode/">highlight syntax more beautifully&lt;/a>, the simplicity of Micro.blog is appealing&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. I expect to hack less and write more.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>I’m reminded of how the &lt;a href="https://en.wikipedia.org/wiki/Oulipo">Oulipo&lt;/a> drew inspiration from constraints. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title/><link>https://www.smockle.com/blog/2019/11/12/a-wwdc-wish-list-update/</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/11/12/a-wwdc-wish-list-update/</guid><description>&lt;p>A “WWDC Wish List”¹ update:
+Safari (and &lt;code>SFSafariViewController&lt;/code>) are gaining support for FIDO2 in iOS 13.3: &lt;a href="https://www.macrumors.com/2019/11/12/ios-13-3-fido2-security-key-support-safari/">www.macrumors.com/2019/11/1&amp;hellip;&lt;/a>&lt;/p>
+&lt;p>¹ &lt;a href="https://www.smockle.com/2019/06/03/wwdc-wish-list/">blog.smockle.com/2019&amp;hellip;&lt;/a>&lt;/p></description></item><item><title/><link>https://www.smockle.com/blog/2019/11/08/i-was-tired-of-using-ports/</link><pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/11/08/i-was-tired-of-using-ports/</guid><description>&lt;p>I was tired of using ports 3000 and 8080 for local web services, so I found a silly alternative—using dialpad spelling to convert service names into port numbers! (e.g. &amp;ldquo;node&amp;rdquo; → 6633) &lt;a href="https://github.com/smockle/phonespell">github.com/smockle/p&amp;hellip;&lt;/a>&lt;/p>
+&lt;p>Try it out! &lt;code>npx @smockle/phonespell TEST&lt;/code>&lt;/p></description></item><item><title>WWDC Wish List</title><link>https://www.smockle.com/blog/2019/06/03/wwdc-wish-list/</link><pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/06/03/wwdc-wish-list/</guid><description>&lt;p>WWDC, Apple’s annual developer conference, starts this week. The &lt;a href="https://www.apple.com/apple-events/">keynote&lt;/a> is today at 10 AM PT. In no particular order, here are a few announcements I’d like to see:&lt;/p>
+&lt;h3 id="software">Software&lt;/h3>
+&lt;ul>
+&lt;li>Bicycle directions in Apple Maps&lt;/li>
+&lt;li>&lt;a href="https://techcrunch.com/2019/05/06/ios-reportedly-getting-its-very-own-swipe-to-type-keyboard/">Swipe-to-type in the iOS keyboard&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://discussions.agilebits.com/discussion/comment/444006/#Comment_444006">API to unlock 1Password vault with unlocked Apple Watch, like MacBook unlock&lt;/a>&lt;/li>
+&lt;li>Two-factor auth codes in the iOS keyboard, like passwords&lt;/li>
+&lt;li>&lt;a href="https://www.wired.com/story/yubikey-lightning-ios-authentication-passwords/">iOS support for FIDO2 (YubiKey)&lt;/a>&lt;/li>
+&lt;li>Multi-user support for the HomePod&lt;/li>
+&lt;li>&lt;a href="https://www.theverge.com/circuitbreaker/2019/2/26/18241049/apple-music-google-home-app-update">Google Assistant support for Apple Music&lt;/a>&lt;/li>
+&lt;li>Siri on third-party devices, like the Sonos One&lt;/li>
+&lt;li>Dynamic complications on watchOS&lt;/li>
+&lt;li>Reduced brightness at night in watchOS&lt;/li>
+&lt;/ul>
+&lt;h3 id="homekit">HomeKit&lt;/h3>
+&lt;ul>
+&lt;li>HomeKit-compatible Z-Wave hub&lt;/li>
+&lt;li>HomeKit support for washers &amp;amp; dryers, robo-vacuums, electricity &amp;amp; gas meters and TVs with Roku OS&lt;/li>
+&lt;li>&lt;a href="https://twitter.com/ring/status/1082485226322817024?lang=en">Ring Alarm&lt;/a>, &lt;a href="https://goabode.com/blog/introducing-the-abode-gen-2-gateway">Abode&lt;/a>, &lt;a href="https://twitter.com/simplisafe/status/1042486636636987392?lang=en">SimpliSafe&lt;/a> or Nest Secure support for HomeKit&lt;/li>
+&lt;li>NFC keyfobs that can trigger HomeKit scenes and automations&lt;/li>
+&lt;/ul>
+&lt;h3 id="hardware">Hardware&lt;/h3>
+&lt;ul>
+&lt;li>External monitor with Face ID&lt;/li>
+&lt;li>External keyboard with Touch ID&lt;/li>
+&lt;li>Cheaper HomePod, like the Echo Dot or Google Home Mini&lt;/li>
+&lt;li>Stand-alone display, like the Echo Show or Google Nest Hub&lt;/li>
+&lt;li>&lt;a href="https://www.axios.com/apple-macbook-arm-chips-ea93c38a-d40a-4873-8de9-7727999c588c.html">MacBooks with Apple-designed ARM-based processors&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Optimizing Web Fonts</title><link>https://www.smockle.com/blog/2019/05/24/optimizing-web-fonts/</link><pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/05/24/optimizing-web-fonts/</guid><description>&lt;p>I audited this site with &lt;a href="https://developers.google.com/web/tools/lighthouse/#devtools">Google Lighthouse&lt;/a>. The utility flagged web font load times (specifically the “Flash of Invisible Text” or “FOIT”). There are many ways to improve web font performance. Zach Leatherman’s &lt;a href="https://www.zachleat.com/web/comprehensive-webfonts/">“A Comprehensive Guide to Font Loading Strategies”&lt;/a> is an excellent resource. I’ll describe the options I considered below.&lt;/p>
+&lt;p>I could display a fallback font while my web font downloads using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display">&lt;code>font-display&lt;/code>&lt;/a>. Unfortunately, &lt;code>serif&lt;/code> (my fallback font) does not have the same x-height and width as &lt;a href="https://github.com/skosch/CrimsonProS">&lt;code>'Crimson Pro S'&lt;/code>&lt;/a> (my web font). Monica Dinculescu created a &lt;a href="https://meowni.ca/font-style-matcher/">“Font Style Matcher”&lt;/a> tool that overlaps two fonts so appropriate CSS adjustments (e.g. &lt;code>letter-spacing&lt;/code>) can be identified. But CSS adjustments would affect both my fallback font &lt;em>and my web font&lt;/em>.&lt;/p>
+&lt;p>I could use the JavaScript &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFace/FontFace">Font Loading API&lt;/a> to load a web font and then append a &lt;code>.font-loaded&lt;/code> class to the &lt;code>html&lt;/code> or &lt;code>body&lt;/code> element&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. This approach would facilitate separate CSS rules for fallback and web fonts. But browser support is limited, and I feared using the Font Loading API alongside &lt;code>@font-face&lt;/code> declarations would cause duplicate downloads.&lt;/p>
+&lt;p>So I took a different approach. Web fonts with smaller file sizes download and display more quickly. Rather than adjusting my fallback font, I used the Python library &lt;code>pyftsubset&lt;/code> to remove OpenType features and unused characters from my web font&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. Andrew Brampton describes this in &lt;a href="https://blog.bramp.net/post/2018/01/21/google-font-features/">“Google Font Features”&lt;/a>.&lt;/p>
+&lt;p>First, I installed &lt;code>pyftsubset&lt;/code> and related packages:&lt;/p>
+&lt;pre>&lt;code>$ pip install fonttools
+$ pip install zopfli
+$ pip install brotli
+&lt;/code>&lt;/pre>
+&lt;p>Next, I installed Filament Group’s &lt;a href="https://github.com/filamentgroup/glyphhanger">&lt;code>glyphhanger&lt;/code>&lt;/a> utility and crawled my website to obtain a list of the Unicode characters I use:&lt;/p>
+&lt;pre>&lt;code>$ npm install -g glyphhanger
+$ glyphhanger [www.smockle.com](https://www.smockle.com) --spider-limit=10
+&lt;/code>&lt;/pre>
+&lt;p>Finally, I optimized my fonts with &lt;code>pyftsubset&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>$ pyftsubset crimsonpros-regular.otf --layout-features='liga,locl,sups,ordn,tnum,frac,kern' --unicodes=&amp;quot;U+0000-00FF, U+0152, U+0153, U+0178, U+02C6, U+02DC, U+2000-206F, U+20AC, U+2122, U+25FC, U+FB01, U+FB02&amp;quot; --flavor=woff2 --output-file=crimsonpros-regular.woff2
+&lt;/code>&lt;/pre>
+&lt;p>The result was a 40% smaller font. I verified the included characters and OpenType features using &lt;a href="https://fontdrop.info">Font Drop&lt;/a> and I did a quick visual check before deploying.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>Update: I’m now using &lt;a href="https://www.gatsbyjs.org/packages/gatsby-plugin-web-font-loader/">&lt;code>gatsby-plugin-web-font-loader&lt;/code>&lt;/a> to add a CSS class to &lt;code>html&lt;/code> when my web fonts load. See &lt;a href="https://github.com/smockle/smockle.com/commit/7efeff6f76e65c57711f31d63ac191b35c64cedf">this commit&lt;/a>. Fonts are not downloaded twice. This was easy after all! &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>&lt;a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel’s Webfont Generator&lt;/a> is popular and arguably easier to use. Unfortunately, no matter which options I selected, &lt;code>liga&lt;/code> and all ligatures were always stripped out. According to &lt;a href="https://twitter.com/FontSquirrel/status/14854008143">a 2010 tweet&lt;/a>, the Font Squirrel OpenType “Keep All Features” option “works for most fonts, but not all.” Crimson Pro S is one of the unlucky few. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Technical Stack II</title><link>https://www.smockle.com/blog/2019/05/05/technical-stack-ii/</link><pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/05/05/technical-stack-ii/</guid><description>&lt;p>I wrote about the technology used to publish and host this blog in &lt;a href="https://blog.smockle.com/2018/08/22/technical-stack/">“Technical Stack”&lt;/a>. In the last week, I’ve moved from building with Jekyll and deploying to GitHub Pages to building with &lt;a href="https://www.gatsbyjs.org">Gatsby&lt;/a> and deploying to AWS S3.&lt;/p>
+&lt;h3 id="advantages">Advantages&lt;/h3>
+&lt;p>Because I no longer use Jekyll, I don’t need to maintain a Ruby environment on my system or in Docker. Dependencies can be upgraded automatically via &lt;a href="https://greenkeeper.io">Greenkeeper&lt;/a>, a tool I use for other Node.js projects, rather than via &lt;a href="https://depfu.com">Depfu&lt;/a>. My new publishing workflow does not rely on the Dropbox client or API.&lt;/p>
+&lt;p>I moved &lt;a href="https://www.smockle.com">my homepage&lt;/a> to Gatsby too. This allowed me to share stylesheets, images, and other assets (e.g. &lt;code>robots.txt&lt;/code>) between both sites. Gatsby is more flexible than Jekyll about image paths, so images now appear inline in my Markdown editor. Also, I can publish posts and images at the same time.&lt;/p>
+&lt;h3 id="workflow">Workflow&lt;/h3>
+&lt;p>Federico Viticci writes articles in Markdown and publishes them using Git, the same technologies I use to produce this blog. He has &lt;a href="https://appstories.net/episodes/54/">spoken&lt;/a> and &lt;a href="https://www.macstories.net/ios/my-Markdown-writing-and-collaboration-workflow-powered-by-working-copy-3-6-icloud-drive-and-GitHub/">written&lt;/a> about his workflow. The tools he uses are powerful, but the publishing process is straightforward. I adopted a similar approach for this blog.&lt;/p>
+&lt;p>I write in &lt;a href="https://ia.net/writer">iA Writer&lt;/a> on macOS and iOS. My posts are saved in the iA Writer folder in iCloud. Drafts are stored at the top-level. Publishing is a two-step process that begins by dragging a completed post from the top-level into the &lt;code>Published&lt;/code> subdirectory. The second step is platform-dependent.&lt;/p>
+&lt;p>On macOS, &lt;a href="https://www.noodlesoft.com">Hazel&lt;/a> syncs the &lt;code>iA Writer/Published&lt;/code> folder in iCloud to a hidden &lt;code>.posts/Published&lt;/code> folder&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> in a local clone of my Git repository.&lt;/p>
+&lt;p>On iOS, &lt;a href="https://workingcopyapp.com">Working Copy&lt;/a> bi-directionally syncs the &lt;code>iA Writer/Published&lt;/code> folder in iCloud and the &lt;code>.posts/Published&lt;/code> folder in my Git repository&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. I can pull, commit and push via a Siri Shortcut.&lt;/p>
+&lt;p>Committing and pushing to the GitHub remote will trigger a Travis CI build and deployment. When that completes, the latest files will be uploaded to S3, cached by CloudFront, and viewable here.&lt;/p>
+&lt;h3 id="next-steps">Next steps&lt;/h3>
+&lt;p>I have several ideas for future improvements:&lt;/p>
+&lt;p>Travis CI builds this blog in stages. First, it builds and runs tests. Next, built files are deployed to a pre-production environment where tests are run again. Finally, files are promoted from the pre-production environment to the production environment and tests are run again. The entire process takes sixteen minutes to complete. I’d like it to finish in less than three.&lt;/p>
+&lt;p>&lt;a href="https://www.gatsbyjs.org/packages/gatsby-plugin-s3/">&lt;code>gatsby-plugin-s3&lt;/code>&lt;/a> is a Gatsby plugin for uploading files built with Gatsby to an S3 bucket. Although unofficial, it is actively developed. I haven’t compared &lt;code>gatsby-plugin-s3&lt;/code> with my Python-and-Bash deploy script, but I’d like to stop maintaining my own deploy script and the Python environment it requires.&lt;/p>
+&lt;p>&lt;a href="https://www.gatsbyjs.org/packages/gatsby-remark-vscode/">&lt;code>gatsby-remark-vscode&lt;/code>&lt;/a> is a Gatsby plugin for applying syntax highlighting to code blocks from Markdown. It’s very new, but thoughtfully-designed and built by a talented developer I know personally. Here is &lt;a href="https://blog.andrewbran.ch/overengineering-a-blog/">the story behind the development of &lt;code>gatsby-remark-vscode&lt;/code>&lt;/a>.&lt;/p>
+&lt;p>Previously, this site could be accessed without an Internet connection. This was accomplished with the &lt;code>ServiceWorker&lt;/code> API. Gatsby provides an official plugin for this—&lt;a href="https://www.gatsbyjs.org/packages/gatsby-plugin-offline/">&lt;code>gatsby-plugin-offline&lt;/code>&lt;/a>—but I haven’t tried it yet.&lt;/p>
+&lt;p>Previously, I used a separate subdomain for this blog (blog.smockle.com). Now, the blog is served from a subdirectory (smockle.com/blog/). I’m still deciding which option better suits current and future content (e.g. apps, podcasts). If I opt to serve content from a subdomain, I’ll need to investigate rewrite rules via Lambda@Edge.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>Hazel can’t sync deletions unless an entire directory is synced, as documented in &lt;a href="https://www.noodlesoft.com/manual/hazel/advanced-topics/syncing-folders/">“Sync a Subfolder (Including Deletions)”&lt;/a>. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>The iA Writer team blogged about this workflow in &lt;a href="https://ia.net/writer/blog/word-and-github">“Word and GitHub”&lt;/a>. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Comparing Z-Wave Switches</title><link>https://www.smockle.com/blog/2019/04/28/comparing-z-wave-switches/</link><pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/04/28/comparing-z-wave-switches/</guid><description>&lt;p>I purchased three popular Z-Wave switches—the &lt;a href="https://byjasco.com/products/ge-z-wave-plus-wall-smart-dimmer">GE 14294&lt;/a>, the &lt;a href="https://store.leviton.com/collections/decora-smart/products/decora-smart-wi-fi-600w-universal-led-incandescent-dimmer-dw6hd-1bz?variant=35006868355">Leviton DW6HD&lt;/a> and the &lt;a href="https://homeseer.com/wp-content/uploads/2018/06/HS-WD100-Manual-6a.pdf">HomeSeer HS-WD100+&lt;/a>. All three support Z-Wave Plus, are rated for a 600W (incandescent) max load, can dim LEDs, and require a neutral wire for installation. Each switch has a unique sound and feel when pressed. Unlike a traditional light switch, the paddle returns to a neutral position when released.&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/b0ff65f74b.jpg" alt="Z-Wave Plus Dimmers (Front)">&lt;/p>
+&lt;h3 id="ge-14294">GE 14294&lt;/h3>
+&lt;p>The &lt;strong>GE 14294&lt;/strong> is sold through many online retailers and is available in Lowe’s stores. Jasco makes a complete lineup of Z-Wave Plus products with the GE brand, including a non-dimming switch, a switch with built-in motion sensor, a fan control, an in-wall outlet receptacle, and an outdoor plug.&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/a640533067.jpg" alt="GE 14294">&lt;/p>
+&lt;p>The plastic paddle is a bright, shiny white (the box also contains an almond-colored paddle). A single small LED is positioned at the bottom-right. An air gap switch is located at the bottom-left. When pressed, the paddle does not recess flush with the faceplate, like a traditional switch. Instead, it depresses very slightly and emits a low click. Dimming is controlled by pressing-and-holding the paddle.&lt;/p>
+&lt;h3 id="leviton-dw6hd">Leviton DW6HD&lt;/h3>
+&lt;p>The &lt;strong>Leviton DW6HD&lt;/strong> is sold through many online retailers and is available in Home Depot stores. Leviton has a more limited selection of Z-Wave Plus products—notably lacking a Z-Wave &lt;em>Plus&lt;/em> fan control or in-wall outlet receptacle.&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/3025436ad6.jpg" alt="Leviton DW6HD">&lt;/p>
+&lt;p>Compared to the GE 14294, the plastic paddle has a more matte finish and is a less bright white (the box also contains an almond-colored paddle). A vertical line of LEDs is hidden behind the plastic to the left. To the right sits a narrow rocker that controls dimming. (The paddle is reserved for on/off.) The paddle feels cheaper than the GE 14294. When pressed, the paddle recesses flush with the faceplate and also overextends, revealing the back of the paddle. It’s unstable, jiggling horizontally. It makes a higher-pitched click.&lt;/p>
+&lt;h3 id="homeseer-hs-wd100">HomeSeer HS-WD100+&lt;/h3>
+&lt;p>The &lt;strong>HomeSeer HS-WD100+&lt;/strong>, its successor the HomeSeer HS WD-200+, a non-dimming switch and a fan control are available for purchase on the HomeSeer website and at other online retailers.&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/87179809ce.jpg" alt="HomeSeer HS-WD100+">&lt;/p>
+&lt;p>The plastic paddle is a bright, shiny white, identical to the GE 14294. An air gap switch is located at the bottom-center. A visible line of LEDs is arrayed to the left of the paddle. When pressed, the paddle has the same motion and sound as the GE 14294. The build quality is similarly high.&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/e936e60230.jpg" alt="Z-Wave Plus Dimmers (Back)">&lt;/p></description></item><item><title>Migrating from Travis CI to Docker Hub Automated Builds</title><link>https://www.smockle.com/blog/2019/04/22/migrating-from-travis-ci-to-docker-hub-automated-builds/</link><pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/04/22/migrating-from-travis-ci-to-docker-hub-automated-builds/</guid><description>&lt;p>Historically, I’ve used Travis CI to build and push new versions of my Docker images. In &lt;a href="https://blog.smockle.com/2019/04/21/keeping-systems-up-to-date/">“Keeping systems up-to-date”&lt;/a>, I describe a feature missing from Travis CI that prompted me to try Docker Hub &lt;a href="https://docs.docker.com/docker-hub/builds/">Automated Builds&lt;/a>:&lt;/p>
+&lt;blockquote>
+&lt;p>If you maintain Docker images, you’ll want to rebuild them when their base images are updated. This will produce a new image that includes security patches and bug fixes available in the base image. Docker Hub’s Automated Builds service supports this via a feature called “Repository Links”…&lt;/p>
+&lt;/blockquote>
+&lt;p>The migration process was straightforward, with one complication—I build multi-architecture images using a &lt;a href="https://docs.docker.com/engine/reference/commandline/manifest/">Docker image manifest&lt;/a>. This is not supported by the Docker Hub UI or by the version of Docker installed on the build infrastructure. But with &lt;a href="https://docs.docker.com/docker-hub/builds/advanced/#custom-build-phase-hooks">“custom build phase hooks”&lt;/a>, I was able to build and push multi-architecture images successfully&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>First, I configured Automated Builds in the Docker Hub UI. I changed the value of “Build Tag” from &lt;code>latest&lt;/code> to &lt;code>build&lt;/code> and added set the “Environment Variable” &lt;code>DOCKER_CLI_EXPERIMENTAL&lt;/code> to &lt;code>enabled&lt;/code>:&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/1fcf3ad186.jpg" alt="Build settings">&lt;/p>
+&lt;p>Next, I added a directory named &lt;code>hooks&lt;/code> to the root of my project. Inside &lt;code>hooks&lt;/code>, I created four files—&lt;code>pre_build&lt;/code>, &lt;code>build&lt;/code>, &lt;code>pre_push&lt;/code> and &lt;code>post_push&lt;/code>.&lt;/p>
+&lt;p>&lt;code>docker-ee&lt;/code> version &lt;code>17.x&lt;/code> is installed by default on Docker Hub build infrastructure. The &lt;code>docker manifest&lt;/code> command was added in &lt;code>docker-ee&lt;/code> version &lt;code>18.x&lt;/code>. My &lt;strong>&lt;code>pre_build&lt;/code>&lt;/strong> hook updates &lt;code>docker-ee&lt;/code> and &lt;a href="https://hub.docker.com/r/multiarch/qemu-user-static/#binfmt_misc-register">prepares for multi-arch builds&lt;/a>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>apt-get -y update
+apt-get -y --only-upgrade install docker-ee
+docker run &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> --rm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> --privileged &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>multiarch/qemu-user-static:register --reset
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>My &lt;strong>&lt;code>build&lt;/code>&lt;/strong> hook builds and tags images for &lt;code>armhf&lt;/code> and &lt;code>amd64&lt;/code> processors. A &lt;code>build&lt;/code> tag is also created, to support the “Build Tag” option set in the Docker Hub UI:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>docker build &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> --build-arg ARCH&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;armhf&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -t smockle/ddns53:arm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -f $DOCKERFILE_PATH .
+docker build &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> --build-arg ARCH&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;amd64&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -t smockle/ddns53:amd64 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -t smockle/ddns53:$DOCKER_TAG &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -f $DOCKERFILE_PATH .
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>My &lt;strong>&lt;code>pre_push&lt;/code>&lt;/strong> hook pushes the architecture-specific images:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>docker push smockle/ddns53:arm
+docker push smockle/ddns53:amd64
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The non-overridable &lt;strong>&lt;code>push&lt;/code>&lt;/strong> step pushes the &lt;code>build&lt;/code> tag&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. Finally, my &lt;strong>&lt;code>post_push&lt;/code>&lt;/strong> hook creates a Docker image manifest and publishes it as &lt;code>latest&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>docker manifest create &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:latest &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:amd64 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:arm
+docker manifest annotate &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:latest &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:arm --os linux --arch arm
+docker manifest annotate &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:latest &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> smockle/ddns53:amd64 --os linux --arch amd64
+docker manifest push --purge smockle/ddns53:latest
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>I committed and pushed the &lt;code>hooks&lt;/code> directory. Back in the Docker Hub UI, I set “Repository Links” to “Enable for Base Image” to rebuild whenever my base image is updated:&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/1fcf3ad186.jpg" alt="Repository Links">&lt;/p>
+&lt;p>I clicked “Save and Build” and waited for the build to complete. After a few minutes, my build succeeded—making my migration from Travis CI to Docker Hub Automated Builds a success&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>For example, &lt;a href="https://cloud.docker.com/u/smockle/repository/docker/smockle/ddns53">smockle/ddns53&lt;/a> &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>The &lt;code>build&lt;/code> tag is pointless, but if it is not created, the non-overridable &lt;code>push&lt;/code> step will fail. You could set “Build Tag” to &lt;code>amd64&lt;/code> in the UI and modify the hooks accordingly. I prefer not to split &lt;code>docker push&lt;/code> commands. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3" role="doc-endnote">
+&lt;p>As an added bonus, READMEs displayed in the Docker Hub are now updated automatically. &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Keeping systems up-to-date</title><link>https://www.smockle.com/blog/2019/04/21/keeping-systems-up-to-date/</link><pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/04/21/keeping-systems-up-to-date/</guid><description>&lt;p>When I set up a new home server, &lt;strong>&lt;a href="https://wiki.debian.org/UnattendedUpgrades">unattended-upgrades&lt;/a>&lt;/strong> is one of the first packages I install&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. The service watches for package updates and installs them automatically. It makes keeping up with security patches and bug fixes easy, but only for system packages. If you run services inside Docker containers, you’ll need to look elsewhere.&lt;/p>
+&lt;p>&lt;strong>&lt;a href="https://github.com/containrrr/watchtower">Watchtower&lt;/a>&lt;/strong> monitors running Docker containers and checks for updated Docker images. When an image used by a running container is updated, Watchtower shuts down the container then restarts it with the same options&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. For best results, ensure the images you depend on receive regular updates.&lt;/p>
+&lt;p>If you maintain Docker images, you’ll want to rebuild them when their base images are updated. This will produce a new image that includes security patches and bug fixes available in the base image. Docker Hub’s &lt;a href="https://docs.docker.com/docker-hub/builds/">Automated Builds&lt;/a> service supports this via a feature called “Repository Links”&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>:&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/89a0bf8d2a.jpg" alt="Repository Links">&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>Here’s an example configuration for Raspberry Pi: &lt;strong>&lt;a href="https://github.com/smockle/pifiles/blob/def7b993eb0a2c9008154716d6708a887bfe2439/pifiles.sh#L32-L58">smockle/pifiles&lt;/a>&lt;/strong> &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>Watchtower runs in a Docker container and yes, it can update itself. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3" role="doc-endnote">
+&lt;p>I used Travis CI to build and push my images, which unfortunately does not provide similar functionality. I’ll write about my migration to Docker Hub Automated Builds in the future. &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Replacing the diffuser on a Philips Hue bulb</title><link>https://www.smockle.com/blog/2018/12/30/replacing-the-diffuser-on-a-philips-hue-bulb/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2018/12/30/replacing-the-diffuser-on-a-philips-hue-bulb/</guid><description>&lt;p>&lt;em>Author’s Note: This is not &lt;a href="https://blog.smockle.com/2018/09/08/philosophy-reading-list/">a philosophy-related post&lt;/a>. The self-imposed pressure to write something unique and insightful kept me from writing at all. I want to write, so I’m temporarily suspending my philosophy project and writing about my other projects.&lt;/em>&lt;/p>
+&lt;p>I received a shipment of Philips Hue bulbs with broken glass diffusers. Unwilling to trash the (otherwise functional) bulbs, I disassembled an inexpensive IKEA bulb to obtain a replacement diffuser:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>I purchased &lt;a href="https://www.amazon.com/gp/aw/d/B01IX9NSEY">IKEA Ryet E26 600 lumen bulbs&lt;/a> and clear &lt;a href="https://www.amazon.com/gp/aw/d/B00OAAUAX8">Gorilla Super Glue Gel&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using pliers, I crushed the screw base of the IKEA bulb, separating it from the rest of the bulb, revealing a circuit board inside a plastic-coated metal cylindrical casing&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using pliers, I pulled the circuit board from the IKEA bulb then, working in a circle, I bent the plastic-coated metal cylindrical casing back and forth until it broke into pieces and separated from the plastic diffuser&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using a small flat-head screwdriver, I scraped the silicone from the IKEA plastic diffuser, until fairly clean, then set it aside&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using a small flat-head screwdriver, I scraped the shards of glass and silicone from the exposed rim of the Philips Hue bulb, until fairly clean&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>I applied Gorilla Glue around the lip of the cleaned plastic IKEA diffuser, then carefully set it in the cleaned rim of the Philips Hue bulb, applying pressure for about 30 seconds until the glue set&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>I allowed 24 hours for the Gorilla Glue to fully set, then screwed the repaired Philips Hue bulb into a lamp socket&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>The IKEA plastic diffuser from the bulb I linked above fits well and diffuses the Philips LED light well, in my opinion.&lt;/p>
+&lt;p>Here is a photo of the finished result:&lt;/p>
+&lt;p>&lt;img src="https://www.smockle.com/uploads/2019/1e50c3af15.jpg" alt="Philips Hue bulb with replaced diffuser">&lt;/p></description></item><item><title>Philosophy Reading List</title><link>https://www.smockle.com/blog/2018/09/08/philosophy-reading-list/</link><pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2018/09/08/philosophy-reading-list/</guid><description>&lt;p>I’m studying ideas and behaviors that have persisted throughout history. For the next two years, I’m perusing classic works of philosophy.&lt;/p>
+&lt;p>To decide where to start, I collated reading lists from four university philosophy departments:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.bc.edu/content/dam/files/schools/cas_sites/philosophy/pdf/Master's%20Comprehensive%20Reading%20List.pdf">Boston College&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://philosophy.cua.edu/res/docs/Approved-Reading-List-Editions.pdf">Catholic University of America&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.marquette.edu/phil/documents/phdcomps.pdf">Marquette University&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://udallas.edu/braniff/academics/phd/philosophy_phd/reading_list.php">University of Dallas&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>I retained selections and editions that appeared in multiple lists, then filtered by affordability and availability of contemporary translations.&lt;/p>
+&lt;p>Here is the result:&lt;/p>
+&lt;h3 id="ancient-philosophy">Ancient Philosophy&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Pre-Socratics&lt;/strong>, &lt;a href="https://www.amazon.com/Philosophy-Before-Socrates-Introduction-Commentary/dp/1603841822">&lt;em>Philosophy Before Socrates&lt;/em>&lt;/a>, ed. McKirahan: &lt;em>“Heraclitus of Ephesus”&lt;/em>, &lt;em>“Parmenides of Elea”&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Plato&lt;/strong>, &lt;a href="https://www.amazon.com/Collected-Dialogues-Plato-Including-Bollingen/dp/0691097186/ref=sr_1_2">&lt;em>The Collected Dialogues of Plato&lt;/em>&lt;/a>, eds. Hamilton, Cairns, Cooper: &lt;em>“Euthyphro”&lt;/em>, &lt;em>“Crito”&lt;/em>, &lt;em>“Phaedo”&lt;/em>, &lt;em>“Meno”&lt;/em>, &lt;em>“Republic”&lt;/em>, &lt;em>“Theaetetus”&lt;/em>, &lt;em>“Sophist”&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Aristotle&lt;/strong>, &lt;a href="https://www.amazon.com/Basic-Aristotle-Modern-Library-Classics/dp/0375757996/ref=sr_1_1">&lt;em>The Basic Works of Aristotle&lt;/em>&lt;/a>, ed. McKeon: &lt;em>“Nicomachean Ethics”&lt;/em>, &lt;em>“De Anima (On the Soul)” Book II, Book III&lt;/em>, &lt;em>“Physics” Book II, Book III 1–3&lt;/em>, &lt;em>“Metaphysics Book” I, VII&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Plotinus&lt;/strong>, &lt;a href="https://www.amazon.com/Essential-Plotinus-Hackett-Classics/dp/0915144093/ref=sr_1_1">&lt;em>The Essential Plotinus&lt;/em>&lt;/a>, ed. O&amp;rsquo;Brien: &lt;em>“Enneads” 1.2, 1.3, 1.6, 2.4, 3.7, 3.8, 4.3, 4.8, 5.1, 5.2, 5.9, 6.9&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Epicurus, Skeptics, Stoics&lt;/strong>, &lt;a href="https://www.amazon.com/Hellenistic-Philosophy-Hackett-Classics-Inwood/dp/0872203786/ref=sr_1_1">&lt;em>Hellenistic Philosophy&lt;/em>&lt;/a>, eds. Inwood, Gerson: &lt;em>“Fragments and testimonia of Epicurus”&lt;/em>, &lt;em>“Sceptical texts and testimonia”&lt;/em>, &lt;em>“Stoic fragments and testimonia”&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;h3 id="medieval-philosophy">Medieval Philosophy&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Augustine&lt;/strong>, &lt;a href="https://www.amazon.com/Confessions-Works-Saint-Augustine-Translation/dp/1565481542/ref=sr_1_1?ie=UTF8&amp;amp;qid=1536467762&amp;amp;sr=8-1&amp;amp;keywords=1565481542&amp;amp;dpID=514XXXPYBYL&amp;amp;preST=_SY291_BO1,204,203,200_QL40_&amp;amp;dpSrc=srch">&lt;em>The Confessions&lt;/em>&lt;/a>, ed. Boulding: &lt;em>Books 6–12&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Augustine&lt;/strong>, &lt;a href="https://www.amazon.com/Free-Choice-Will-Hackett-Classics/dp/0872201880/ref=sr_1_1">&lt;em>On Free Choice of the Will&lt;/em>&lt;/a>, ed. Williams&lt;/li>
+&lt;li>&lt;strong>Aquinas&lt;/strong>, &lt;em>Summa Theologica&lt;/em>: &lt;em>Book I 1–13, Book II 1–5, 90–98, 100&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Aquinas&lt;/strong>, &lt;a href="https://www.amazon.com/Being-Essence-Mediaeval-Sources-Translation/dp/0888442505/ref=sr_1_1">&lt;em>On Being and Essence&lt;/em>&lt;/a>, ed. Maurer&lt;/li>
+&lt;li>&lt;strong>Averroes&lt;/strong>, &lt;a href="https://www.amazon.com/Philosophy-Middle-Ages-Christian-Traditions/dp/160384208X/ref=sr_1_1">&lt;em>Philosophy in the Middle Ages&lt;/em>&lt;/a>, eds. Hyman, Walsh, Williams&lt;/li>
+&lt;/ul>
+&lt;h3 id="modern-philosophy">Modern Philosophy&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Machiavelli&lt;/strong>, &lt;a href="https://www.amazon.com/Prince-Second-Niccolo-Machiavelli/dp/0226500438/ref=sr_1_1">&lt;em>The Prince&lt;/em>&lt;/a>, 2nd ed., ed. Mansfield&lt;/li>
+&lt;li>&lt;strong>Hobbes&lt;/strong>, &lt;a href="https://www.amazon.com/Leviathan-selected-variants-Hackett-Classics/dp/0872201775/ref=sr_1_1">&lt;em>Leviathan&lt;/em>&lt;/a>, ed. Curley: &lt;em>Book I, Book II&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Descartes&lt;/strong>, &lt;a href="https://www.amazon.com/Discourse-Method-Meditations-First-Philosophy/dp/0872204200/ref=sr_1_1">&lt;em>Discourse on Method and Meditations on First Philosophy&lt;/em>&lt;/a>, 4th ed., ed. Cress&lt;/li>
+&lt;li>&lt;strong>Spinoza&lt;/strong> &lt;a href="https://www.amazon.com/Ethics-Treatise-Emendation-Intellect-Selected/dp/0872201309/ref=sr_1_1">&lt;em>Ethics&lt;/em>&lt;/a>, eds. Feldman, Shirley: &lt;em>Book I, Book II&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Leibniz&lt;/strong>, &lt;a href="https://www.amazon.com/Leibniz-Philosophical-Essays-Hackett-Classics/dp/0872200620/ref=sr_1_1">&lt;em>Leibniz: Philosophical Essays&lt;/em>&lt;/a>, eds. Ariew, Garber: &lt;em>“Monadology”&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Locke&lt;/strong>, &lt;a href="https://www.amazon.com/Essay-Concerning-Understanding-Hackett-Classics/dp/087220216X/ref=sr_1_1">&lt;em>An Essay Concerning Human Understanding&lt;/em>&lt;/a>, ed. Winkler: &lt;em>Book I 1, Book II, 1–13, 19–27, 31–33&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Locke&lt;/strong>, &lt;a href="https://www.amazon.com/Second-Treatise-Government-Hackett-Classics/dp/0915144867/ref=sr_1_1">&lt;em>Second Treatise of Government&lt;/em>&lt;/a>, ed. Macpherson&lt;/li>
+&lt;li>&lt;strong>Berkeley&lt;/strong>, &lt;a href="https://www.amazon.com/Treatise-Concerning-Principles-Knowledge-Classics/dp/0915145391/ref=sr_1_1">&lt;em>A Treatise Concerning the Principles of Human Knowledge&lt;/em>&lt;/a>, ed. Winkler&lt;/li>
+&lt;li>&lt;strong>Hume&lt;/strong>, &lt;a href="https://www.amazon.com/Treatise-Human-Nature-Oxford-Philosophical/dp/0198751729/ref=sr_1_1">&lt;em>A Treatise of Human Nature&lt;/em>&lt;/a>, eds. Norton, Norton: _ Book I 1, 3_&lt;/li>
+&lt;li>&lt;strong>Rousseau&lt;/strong>, &lt;a href="https://www.amazon.com/Discourse-Origin-Inequality-Hackett-Classics/dp/0872201503/ref=sr_1_1">&lt;em>Discourse on the Origin of Inequality&lt;/em>&lt;/a>, eds. Cress, Miller&lt;/li>
+&lt;li>&lt;strong>Kant&lt;/strong>, &lt;a href="https://www.amazon.com/Critique-Reason-Cambridge-Works-Immanuel/dp/0521657296/ref=sr_1_1">&lt;em>Critique of Pure Reason&lt;/em>&lt;/a>, eds. Guyer, Wood&lt;/li>
+&lt;li>&lt;strong>Kant&lt;/strong>, &lt;a href="https://www.amazon.com/Kant-Groundwork-Metaphysics-Cambridge-Philosophy/dp/1107401062/ref=sr_1_1">&lt;em>Groundwork of the Metaphysics of Morals&lt;/em>&lt;/a>, eds. Gregor, Timmermann, Korsgaard&lt;/li>
+&lt;li>&lt;strong>Hegel&lt;/strong>, &lt;a href="https://www.amazon.com/Phenomenology-Spirit-G-W-Hegel/dp/0198245971/ref=sr_1_1">&lt;em>Phenomenology of Spirit&lt;/em>&lt;/a>, eds. Miller, Findlay&lt;/li>
+&lt;li>&lt;strong>Mill&lt;/strong>, &lt;a href="https://www.amazon.com/Utilitarianism-John-Stuart-Mill/dp/087220605X/ref=sr_1_1">&lt;em>Utilitarianism&lt;/em>&lt;/a>, ed. Sher&lt;/li>
+&lt;li>&lt;strong>Mill&lt;/strong>, &lt;a href="https://www.amazon.com/Liberty-Classics-John-Stuart-Mill/dp/0915144433/ref=sr_1_1">&lt;em>On Liberty&lt;/em>&lt;/a>, ed. Rapaport&lt;/li>
+&lt;/ul>
+&lt;h3 id="contemporary-philosophy">Contemporary Philosophy&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Marx&lt;/strong>, &lt;a href="https://www.amazon.com/Marx-Selected-Writings-Hackett-Classics/dp/0872202186/ref=sr_1_1">&lt;em>Marx: Selected Writings&lt;/em>&lt;/a>, ed. Simon: &lt;em>“The German Ideology I”&lt;/em>, &lt;em>“The Communist Manifesto”&lt;/em>, &lt;em>“Wage-Labour and Capital”&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Nietzsche&lt;/strong>, &lt;a href="https://www.amazon.com/Genealogy-Morals-Ecce-Homo/dp/0679724621/ref=sr_1_1">&lt;em>Genealogy of Morals&lt;/em>&lt;/a>, ed. Kaufmann&lt;/li>
+&lt;li>&lt;strong>Husserl&lt;/strong>, &lt;em>Logical Investigations&lt;/em> or &lt;em>Cartesian Meditations&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Heidegger&lt;/strong>, &lt;a href="https://www.amazon.com/Being-Harper-Perennial-Modern-Thought/dp/0061575593/ref=sr_1_1">&lt;em>Being and Time&lt;/em>&lt;/a>, eds. Macquarrie, Robinson&lt;/li>
+&lt;li>&lt;strong>Wittgenstein&lt;/strong>, &lt;a href="https://www.amazon.com/Philosophical-Investigations-Ludwig-Wittgenstein/dp/1405159286/ref=sr_1_1">&lt;em>Philosophical Investigations&lt;/em>&lt;/a>, eds. Hacker, Schulte&lt;/li>
+&lt;li>&lt;strong>Wittgenstein&lt;/strong>, &lt;a href="https://www.amazon.com/Tractatus-Logico-Philosophicus-Ludwig-Wittgenstein/dp/0486404455/ref=sr_1_1">&lt;em>Tractatus Logico-Philosophicus&lt;/em>&lt;/a>, eds. Ogden, Russell&lt;/li>
+&lt;li>&lt;strong>Dewey&lt;/strong>, &lt;a href="https://www.amazon.com/Experience-Nature-John-Dewey/dp/0486204715/ref=sr_1_1">&lt;em>Experience and Nature&lt;/em>&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Technical Stack</title><link>https://www.smockle.com/blog/2018/08/22/technical-stack/</link><pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2018/08/22/technical-stack/</guid><description>&lt;p>&lt;em>NB: &lt;a href="https://blog.smockle.com/2019/05/05/technical-stack-ii/">“Technical Stack II”&lt;/a> is a newer post on this topic. The post below is outdated.&lt;/em>&lt;/p>
+&lt;p>At a friend’s request, here is an overview of this blog’s technical stack.&lt;/p>
+&lt;p>This blog is hosted on GitHub Pages. Jekyll transforms Markdown files into a static website. An AWS CloudFront distribution provides HTTPS support as, unaffected by DNS record edits&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, GitHub Pages will not serve content over HTTPS&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>As I edit Markdown files in Ulysses, Dropbox notifies an AWS API Gateway. A chain of AWS Lambda functions syncs updates from Dropbox to the GitHub Pages repository&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>. The required resources are described by an AWS CloudFormation template, in spite of limitations&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>Using a &lt;code>CNAME&lt;/code> record instead of an &lt;code>A&lt;/code> record, adding Let’s Encrypt to the &lt;code>CAA&lt;/code> record, etc. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>“Unavailable for your site because your domain is not properly configured to support HTTPS” &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3" role="doc-endnote">
+&lt;p>&lt;a href="https://github.com/smockle/dropblog">smockle/dropblog&lt;/a> &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4" role="doc-endnote">
+&lt;p>For example:&lt;/p>
+&lt;ul>
+&lt;li>External Swagger files don’t support stage variables or pseudo parameters: &lt;a href="https://github.com/awslabs/serverless-application-model/issues/345">awslabs/serverless-application-model#345&lt;/a>&lt;/li>
+&lt;li>S3-Lambda permissions and policies that reference S3 bucket names are mutually-exclusive, &lt;a href="https://aws.amazon.com/premiumsupport/knowledge-center/unable-validate-circular-dependency-cloudformation/">unable-validate-circular-dependency-cloudformation&lt;/a> notwithstanding&lt;/li>
+&lt;li>Neither &lt;code>Fn::GetAtt&lt;/code> nor &lt;code>Ref&lt;/code> return ARNs for all resources&lt;/li>
+&lt;/ul>
+&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;/section></description></item></channel></rss>
