@@ -1,7 +1,7 @@
 /* Variables */
 :root {
-  --font-title: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  --font-body: "Crimson Pro S", "Georgia", serif;
+  --font-title: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-body: ui-serif, -apple-system-ui-serif, "Georgia", serif;
   --font-code: "SF Mono", Menlo, monospace;
 }
 /* @media (prefers-color-scheme: no-preference), (prefers-color-scheme: light) { */
@@ -25,40 +25,6 @@
   }
 }
 
-/* Fonts */
-@font-face {
-  font-family: "Lato";
-  src: local("Lato Black"), local("Lato-Black"),
-    url("/assets/fonts/lato-black.woff") format("woff2");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Crimson Pro S";
-  src: local("CrimsonProS Regular"), local("CrimsonProS-Regular"),
-    url("/assets/fonts/crimson-pro-s-regular.woff") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Crimson Pro S";
-  src: local("CrimsonProS Italic"), local("CrimsonProS-Italic"),
-    url("/assets/fonts/crimson-pro-s-italic.woff") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Crimson Pro S";
-  src: local("CrimsonProS Bold"), local("CrimsonProS-Bold"),
-    url("/assets/fonts/crimson-pro-s-bold.woff") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Base */
 html, body, div, span, object, iframe, h1, h2, h3, h4, p, blockquote, pre, a, address, cite, code, em, img, kbd, small, strike, strong, sub, sup, b, u, i, center, ol, ul, li, form, label, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, figure, footer, header, menu, section, time, mark, audio, video {
 	margin: 0;
@@ -72,19 +38,19 @@ pre, code, kbd { font-family: var(--font-code); }
 pre { white-space: pre-wrap; }
 html {
   font-family: var(--font-body);
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.7;
 }
 @media (min-width: 50em) {
   html {
-    font-size: 22px;
+    font-size: 19px;
   }
 }
 @media (max-width: 50em) {
   body > :not(:only-child) > *,
   body > :only-child > * > * {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 1.15rem;
+    margin-right: 1.15rem;
   }
 }
 @media (min-width: 50em) {
@@ -98,30 +64,30 @@ html {
 
 /* Spacing */
 h1, h2, h3, h4, :not(li) > p:not(:empty), i, :not(li) > ul, :not(li) > ol, blockquote, pre, table, figure, audio, video {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 li {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.55rem;
+  margin-bottom: 0.55rem;
 }
 body > :not(:only-child) > :first-child,
 body > :only-child > * > :first-child {
-  margin-top: 2rem;
+  margin-top: 2.3rem;
 }
 body > :not(:only-child) > :last-child {
-  margin-bottom: 2rem;
+  margin-bottom: 2.3rem;
 }
 
 /* Font Size */
 h1, h2, h3, h4 {
   font-family: var(--font-title);
+  font-weight: bold;
   line-height: 1.05;
-  font-weight: 900;
 }
-h1 { font-size: 1.9em; }
-h2 { font-size: 1.25em; }
-pre, code, kbd { font-size: 0.75rem; }
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.45em; }
+pre, code, kbd { font-size: 0.85rem; }
 
 /* Color & Style */
 html { background-color: var(--color-background); }
@@ -148,8 +114,8 @@ em {
 }
 hr {
   border: 0;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 1.75em;
+  margin-bottom: 1.75em;
 }
 hr::before {
   content: "⁂";
@@ -169,7 +135,7 @@ html img:not(.logo):not(.matteless) {
 html :not(picture) > img:not(.logo):not(.matteless) {
   border: 0.25rem solid var(--color-background-alternate);
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: 1.15rem;
 }
 @media (max-width: 50em) {
   html :not(picture) > img:not(.logo):not(.matteless) {
@@ -184,7 +150,7 @@ html :not(picture) > img:not(.logo):not(.matteless) {
 blockquote {
   border-left: 0.25rem solid var(--color-background-alternate);
   font-style: italic;
-  padding-left: 1rem;
+  padding-left: 1.15rem;
 }
 sub { font-variant-position: sub; }
 sup { font-variant-position: super; }
@@ -203,14 +169,14 @@ pre, code, kbd { background-color: var(--color-background-alternate) !important;
   }
 }
 pre {
-  padding: 0.5rem;
+  padding: 0.55rem;
 }
 code, kbd { padding: 0.15rem; }
 pre code { padding: 0; }
 code { overflow-wrap: break-word; }
 
-@media (max-width: 50em) { ul, ol { padding-left: 1.5em; } }
-@media (min-width: 50em) { ul, ol { padding-left: 2em; } }
+@media (max-width: 50em) { ul, ol { padding-left: 1.75em; } }
+@media (min-width: 50em) { ul, ol { padding-left: 2.3em; } }
 
 .navigation > section {
   align-items: center;
@@ -219,19 +185,19 @@ code { overflow-wrap: break-word; }
   justify-content: space-between;
 }
 .main-nav a { color: var(--color-text-alternate); }
-.main-nav a + a { margin-left: 1rem; }
+.main-nav a + a { margin-left: 1.15rem; }
 .dates, .post-meta {
   color: var(--color-text-alternate);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: italic;
   line-height: 1.44;
 }
 body .dates {
-  margin-bottom: -1rem;
+  margin-bottom: -1.15rem;
 }
 #post-list .post-body {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 #post-list .post-body > :nth-last-child(2) { display: inline; }
 #post-list .read-more {
@@ -267,7 +233,8 @@ html[data-home] { background-color: var(--color-section); }
   color: var(--color-section-alternate);
   content: "smocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmocklesmockle";
   font-family: var(--font-title);
-  font-size: 3.7rem;
+  font-size: 4.25rem;
+  font-weight: bold;
   left: -5vw;
   line-height: 0.7;
   max-width: 110vw;
@@ -290,16 +257,16 @@ html[data-home] { background-color: var(--color-section); }
   margin: 0 auto;
 }
 .hero aside .h0 {
-  font-size: 3.7rem;
+  font-size: 4.25rem;
 }
 .hero aside em {
   display: block;
-  margin-top: -0.75rem;
-  margin-bottom: -0.75rem;
+  margin-top: -0.85rem;
+  margin-bottom: -0.85rem;
 }
 .profile {
   height: 50%;
-  margin: -2rem 0;
+  margin: -2.3rem 0;
   object-fit: contain;
   width: 60%;
 }
@@ -314,17 +281,17 @@ html[data-home] { background-color: var(--color-section); }
   left: -5px;
 }
 .network-icon {
-  width: 3.7rem;
+  width: 4.25rem;
   height: auto;
   filter: var(--filter-icon);
 }
 @media (max-width: 50em) {
   .network-icons a { flex-basis: 25%; }
-  .network-icon { width: 2.9rem; }
+  .network-icon { width: 3.35rem; }
 }
 @media (min-width: 50em) {
   .network-icons a { flex-basis: 20%; }
-  .network-icon { width: 3.7rem; }
+  .network-icon { width: 4.25rem; }
 }
 
 /* On page2+ show extra pagination controls at the top of post list */
