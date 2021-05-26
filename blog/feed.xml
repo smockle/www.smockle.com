@@ -39,10 +39,10 @@ $ gem install solargraph
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>I already had &lt;code>rbenv&lt;/code> installed, but it’s also available from &lt;a href="https://github.com/rbenv/rbenv#homebrew-on-macos">Homebrew&lt;/a>. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>I already had &lt;code>rbenv&lt;/code> installed, but it’s also available from &lt;a href="https://github.com/rbenv/rbenv#homebrew-on-macos">Homebrew&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>I prefer &lt;a href="https://panic.com/nova/">Nova&lt;/a>’s macOS &lt;a href="https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/">HIG&lt;/a>-friendly UI, but Nova doesn’t support auto-fixing TypeScript or Ruby yet, so I’m using Visual Studio Code. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>I prefer &lt;a href="https://panic.com/nova/">Nova&lt;/a>’s macOS &lt;a href="https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/">HIG&lt;/a>-friendly UI, but Nova doesn’t support auto-fixing TypeScript or Ruby yet, so I’m using Visual Studio Code.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/section></description></item><item><title>Ben Thompson on new middlemen</title><link>https://www.smockle.com/blog/2020/02/26/ben-thompson-on-new-middlemen/</link><pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2020/02/26/ben-thompson-on-new-middlemen/</guid><description>&lt;p>Ben Thompson &lt;a href="https://stratechery.com/2020/email-addresses-and-razor-blades/">contends the Internet did not do away with middlemen&lt;/a>. Instead, he argues, direct-to-consumer companies (e.g. Harry’s) pay Google and Facebook (the leaders in targeted advertising) for customer attention in the same way consumer goods companies have historically paid brick-and-mortar retailers for shelf space.&lt;/p>
@@ -63,7 +63,7 @@ $ gem install solargraph
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>I’m reminded of how the &lt;a href="https://en.wikipedia.org/wiki/Oulipo">Oulipo&lt;/a> drew inspiration from constraints. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>I’m reminded of how the &lt;a href="https://en.wikipedia.org/wiki/Oulipo">Oulipo&lt;/a> drew inspiration from constraints.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/section></description></item><item><title/><link>https://www.smockle.com/blog/2019/11/12/a-wwdc-wish-list-update/</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/11/12/a-wwdc-wish-list-update/</guid><description>&lt;p>A “WWDC Wish List”¹ update:
@@ -118,10 +118,10 @@ $ glyphhanger [www.smockle.com](https://www.smockle.com) --spider-limit=10
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>Update: I’m now using &lt;a href="https://www.gatsbyjs.org/packages/gatsby-plugin-web-font-loader/">&lt;code>gatsby-plugin-web-font-loader&lt;/code>&lt;/a> to add a CSS class to &lt;code>html&lt;/code> when my web fonts load. See &lt;a href="https://github.com/smockle/smockle.com/commit/7efeff6f76e65c57711f31d63ac191b35c64cedf">this commit&lt;/a>. Fonts are not downloaded twice. This was easy after all! &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Update: I’m now using &lt;a href="https://www.gatsbyjs.org/packages/gatsby-plugin-web-font-loader/">&lt;code>gatsby-plugin-web-font-loader&lt;/code>&lt;/a> to add a CSS class to &lt;code>html&lt;/code> when my web fonts load. See &lt;a href="https://github.com/smockle/smockle.com/commit/7efeff6f76e65c57711f31d63ac191b35c64cedf">this commit&lt;/a>. Fonts are not downloaded twice. This was easy after all!&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>&lt;a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel’s Webfont Generator&lt;/a> is popular and arguably easier to use. Unfortunately, no matter which options I selected, &lt;code>liga&lt;/code> and all ligatures were always stripped out. According to &lt;a href="https://twitter.com/FontSquirrel/status/14854008143">a 2010 tweet&lt;/a>, the Font Squirrel OpenType “Keep All Features” option “works for most fonts, but not all.” Crimson Pro S is one of the unlucky few. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel’s Webfont Generator&lt;/a> is popular and arguably easier to use. Unfortunately, no matter which options I selected, &lt;code>liga&lt;/code> and all ligatures were always stripped out. According to &lt;a href="https://twitter.com/FontSquirrel/status/14854008143">a 2010 tweet&lt;/a>, the Font Squirrel OpenType “Keep All Features” option “works for most fonts, but not all.” Crimson Pro S is one of the unlucky few.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/section></description></item><item><title>Technical Stack II</title><link>https://www.smockle.com/blog/2019/05/05/technical-stack-ii/</link><pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/05/05/technical-stack-ii/</guid><description>&lt;p>I wrote about the technology used to publish and host this blog in &lt;a href="https://blog.smockle.com/2018/08/22/technical-stack/">“Technical Stack”&lt;/a>. In the last week, I’ve moved from building with Jekyll and deploying to GitHub Pages to building with &lt;a href="https://www.gatsbyjs.org">Gatsby&lt;/a> and deploying to AWS S3.&lt;/p>
@@ -145,10 +145,10 @@ $ glyphhanger [www.smockle.com](https://www.smockle.com) --spider-limit=10
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>Hazel can’t sync deletions unless an entire directory is synced, as documented in &lt;a href="https://www.noodlesoft.com/manual/hazel/advanced-topics/syncing-folders/">“Sync a Subfolder (Including Deletions)”&lt;/a>. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Hazel can’t sync deletions unless an entire directory is synced, as documented in &lt;a href="https://www.noodlesoft.com/manual/hazel/advanced-topics/syncing-folders/">“Sync a Subfolder (Including Deletions)”&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>The iA Writer team blogged about this workflow in &lt;a href="https://ia.net/writer/blog/word-and-github">“Word and GitHub”&lt;/a>. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>The iA Writer team blogged about this workflow in &lt;a href="https://ia.net/writer/blog/word-and-github">“Word and GitHub”&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/section></description></item><item><title>Comparing Z-Wave Switches</title><link>https://www.smockle.com/blog/2019/04/28/comparing-z-wave-switches/</link><pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/04/28/comparing-z-wave-switches/</guid><description>&lt;p>I purchased three popular Z-Wave switches—the &lt;a href="https://byjasco.com/products/ge-z-wave-plus-wall-smart-dimmer">GE 14294&lt;/a>, the &lt;a href="https://store.leviton.com/collections/decora-smart/products/decora-smart-wi-fi-600w-universal-led-incandescent-dimmer-dw6hd-1bz?variant=35006868355">Leviton DW6HD&lt;/a> and the &lt;a href="https://homeseer.com/wp-content/uploads/2018/06/HS-WD100-Manual-6a.pdf">HomeSeer HS-WD100+&lt;/a>. All three support Z-Wave Plus, are rated for a 600W (incandescent) max load, can dim LEDs, and require a neutral wire for installation. Each switch has a unique sound and feel when pressed. Unlike a traditional light switch, the paddle returns to a neutral position when released.&lt;/p>
@@ -216,13 +216,13 @@ docker manifest push --purge smockle/ddns53:latest
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>For example, &lt;a href="https://cloud.docker.com/u/smockle/repository/docker/smockle/ddns53">smockle/ddns53&lt;/a> &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>For example, &lt;a href="https://cloud.docker.com/u/smockle/repository/docker/smockle/ddns53">smockle/ddns53&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>The &lt;code>build&lt;/code> tag is pointless, but if it is not created, the non-overridable &lt;code>push&lt;/code> step will fail. You could set “Build Tag” to &lt;code>amd64&lt;/code> in the UI and modify the hooks accordingly. I prefer not to split &lt;code>docker push&lt;/code> commands. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>The &lt;code>build&lt;/code> tag is pointless, but if it is not created, the non-overridable &lt;code>push&lt;/code> step will fail. You could set “Build Tag” to &lt;code>amd64&lt;/code> in the UI and modify the hooks accordingly. I prefer not to split &lt;code>docker push&lt;/code> commands.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:3" role="doc-endnote">
-&lt;p>As an added bonus, READMEs displayed in the Docker Hub are now updated automatically. &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>As an added bonus, READMEs displayed in the Docker Hub are now updated automatically.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/section></description></item><item><title>Keeping systems up-to-date</title><link>https://www.smockle.com/blog/2019/04/21/keeping-systems-up-to-date/</link><pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2019/04/21/keeping-systems-up-to-date/</guid><description>&lt;p>When I set up a new home server, &lt;strong>&lt;a href="https://wiki.debian.org/UnattendedUpgrades">unattended-upgrades&lt;/a>&lt;/strong> is one of the first packages I install&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. The service watches for package updates and installs them automatically. It makes keeping up with security patches and bug fixes easy, but only for system packages. If you run services inside Docker containers, you’ll need to look elsewhere.&lt;/p>
@@ -233,13 +233,13 @@ docker manifest push --purge smockle/ddns53:latest
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>Here’s an example configuration for Raspberry Pi: &lt;strong>&lt;a href="https://github.com/smockle/pifiles/blob/def7b993eb0a2c9008154716d6708a887bfe2439/pifiles.sh#L32-L58">smockle/pifiles&lt;/a>&lt;/strong> &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Here’s an example configuration for Raspberry Pi: &lt;strong>&lt;a href="https://github.com/smockle/pifiles/blob/def7b993eb0a2c9008154716d6708a887bfe2439/pifiles.sh#L32-L58">smockle/pifiles&lt;/a>&lt;/strong>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>Watchtower runs in a Docker container and yes, it can update itself. &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Watchtower runs in a Docker container and yes, it can update itself.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:3" role="doc-endnote">
-&lt;p>I used Travis CI to build and push my images, which unfortunately does not provide similar functionality. I’ll write about my migration to Docker Hub Automated Builds in the future. &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>I used Travis CI to build and push my images, which unfortunately does not provide similar functionality. I’ll write about my migration to Docker Hub Automated Builds in the future.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/section></description></item><item><title>Replacing the diffuser on a Philips Hue bulb</title><link>https://www.smockle.com/blog/2018/12/30/replacing-the-diffuser-on-a-philips-hue-bulb/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate><guid>https://www.smockle.com/blog/2018/12/30/replacing-the-diffuser-on-a-philips-hue-bulb/</guid><description>&lt;p>&lt;em>Author’s Note: This is not &lt;a href="https://blog.smockle.com/2018/09/08/philosophy-reading-list/">a philosophy-related post&lt;/a>. The self-imposed pressure to write something unique and insightful kept me from writing at all. I want to write, so I’m temporarily suspending my philosophy project and writing about my other projects.&lt;/em>&lt;/p>
@@ -330,13 +330,13 @@ docker manifest push --purge smockle/ddns53:latest
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1" role="doc-endnote">
-&lt;p>Using a &lt;code>CNAME&lt;/code> record instead of an &lt;code>A&lt;/code> record, adding Let’s Encrypt to the &lt;code>CAA&lt;/code> record, etc. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Using a &lt;code>CNAME&lt;/code> record instead of an &lt;code>A&lt;/code> record, adding Let’s Encrypt to the &lt;code>CAA&lt;/code> record, etc.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>“Unavailable for your site because your domain is not properly configured to support HTTPS” &lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>“Unavailable for your site because your domain is not properly configured to support HTTPS”&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:3" role="doc-endnote">
-&lt;p>&lt;a href="https://github.com/smockle/dropblog">smockle/dropblog&lt;/a> &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/smockle/dropblog">smockle/dropblog&lt;/a>&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:4" role="doc-endnote">
 &lt;p>For example:&lt;/p>
@@ -345,6 +345,6 @@ docker manifest push --purge smockle/ddns53:latest
 &lt;li>S3-Lambda permissions and policies that reference S3 bucket names are mutually-exclusive, &lt;a href="https://aws.amazon.com/premiumsupport/knowledge-center/unable-validate-circular-dependency-cloudformation/">unable-validate-circular-dependency-cloudformation&lt;/a> notwithstanding&lt;/li>
 &lt;li>Neither &lt;code>Fn::GetAtt&lt;/code> nor &lt;code>Ref&lt;/code> return ARNs for all resources&lt;/li>
 &lt;/ul>
-&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/li>
+&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;/section></description></item></channel></rss>

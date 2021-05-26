@@ -2,7 +2,7 @@
 :root {
   --font-title: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --font-body: ui-serif, -apple-system-ui-serif, "Georgia", serif;
-  --font-code: "SF Mono", Menlo, monospace;
+  --font-code: ui-monospace, "SF Mono", Menlo, monospace;
 }
 /* @media (prefers-color-scheme: no-preference), (prefers-color-scheme: light) { */
 :root {
